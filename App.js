@@ -1,13 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Picker, SafeAreaView } from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 import { styles } from './stylesheet';
 import PickerMenu from './components/PickerMenu';
+// import Tomato from './components/Tomato';
+import vibrate from './utils/vibrate';
 import Buttons from './components/Buttons';
 import Timer from './components/Timer';
 import HelpInfo from './components/HelpInfo';
 import Info from './components/Info';
-// import Tomato from './components/Tomato';
-import vibrate from './utils/vibrate';
+
 
 function leftPadding(n) {
   if (parseInt(n) < 10) {
@@ -23,7 +24,7 @@ function getTime(val) {
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       currentTime: "25:00",
       workTime: "25:00",
@@ -142,15 +143,15 @@ class App extends React.Component {
           <Timer currentTime={this.state.currentTime}/>
           <HelpInfo working={this.state.working} paused={this.state.paused} playing={this.state.playing}/>
           <View style={{flexDirection: 'row'}}>
-            <Button
+            <Buttons
               title="Play"
               onPress={this.playButton}
             />
-            <Button
+            <Buttons
               title="Pause"
               onPress={this.pauseButton}
             />
-            <Button
+            <Buttons
               title="Reset"
               onPress={this.resetButton}
             />
